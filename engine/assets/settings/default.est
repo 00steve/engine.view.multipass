@@ -1,0 +1,64 @@
+
+#default group is what is loaded into the engine by default when it is initialized
+#window - if a single window is being created. it will be given the global name of "window"
+#windows - if more than one window is being created. Each window will be given the global name it's group uses in the config
+
+
+
+
+default{
+	window{
+		fullscreen false
+		size 800,600
+		bitdepth 32
+		position 150,50
+		user-resizable false
+		title "titty fucks!"
+	}
+
+	#windows[
+        #window1{ #given global name "window1"
+        #window1 properties
+        #}
+        #window2{ #given global name "window2"
+        #window2 properties
+        #}
+	#]
+
+    #view{
+    #    type multipass
+    #    window window
+    #    width 100
+    #    height 100
+    #    sizing percent #other option is pixels
+    #}
+
+    views[
+        { #given global name of mainview
+            type multipass
+            width 100
+            height 50
+            anchor top
+            offset 0,50
+            sizing percent #other option is pixels
+        }
+        { #given global name of otherview
+            type multipass
+            window window
+            width 100
+            height 50
+            anchor top
+            sizing percent #other option is pixels
+
+        }
+    ]
+
+	engine-control{
+		type loadscreen
+		thing1 stuff
+		thing2 things
+		thing3 "stuff and things"
+		view mainview
+	}
+
+}

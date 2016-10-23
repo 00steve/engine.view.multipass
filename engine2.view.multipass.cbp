@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="engine2.view.multipass" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../engine_test/assets/extensions/engine.view.multipass.dll" prefix_auto="0" extension_auto="0" />
+				<Option object_output="obj/Debug/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option host_application="N:/Programming/C++/engine2/engine2.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-DBUILD_DLL" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="user32" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/engine2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-DBUILD_DLL" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="user32" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+		</Compiler>
+		<Linker>
+			<Add library="opengl32" />
+			<Add library="glu32" />
+		</Linker>
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/assetlibrary/assetlibrary.cpp" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/assetlibrary/assetlibrary.h" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/double2.cpp" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/double2.h" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/int2.h" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/node.cpp" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/node.h" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/nodemessage.cpp" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/nodemessage.h" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/stringutil.cpp" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/stringutil.h" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/varmap.cpp" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/graphics/camera.cpp" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/graphics/camera.h" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/graphics/view.cpp" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/graphics/view.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
+		<Unit filename="multipass.cpp" />
+		<Unit filename="multipass.h" />
+		<Unit filename="renderpass.cpp" />
+		<Unit filename="renderpass.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

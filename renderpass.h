@@ -3,7 +3,6 @@
 
 #include <engine/core/node.h>
 #include <engine/graphics/camera.h>
-#include <gl/gl.h>
 
 
 class RenderPass : public Node{

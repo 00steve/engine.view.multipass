@@ -2,7 +2,7 @@
 
 
 RenderPass::RenderPass() :
-    clearFlags(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT),
+    clearFlags(GL_COLOR_BUFFER_BIT),// | GL_DEPTH_BUFFER_BIT
     clearColor{0,0,0,1},
     camera(NULL){
 }

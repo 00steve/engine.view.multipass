@@ -1,8 +1,8 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
-#include <windows.h>
 #include "multipass.h"
+#include <windows.h>
 
 /*  To use this exported function of dll, include this header
  *  in your project.

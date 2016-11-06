@@ -43,14 +43,11 @@ void Multipass::Draw(){
 	glScissor(bottomLeft.x,bottomLeft.y,dimensions.x,dimensions.y);
 	glViewport(bottomLeft.x,bottomLeft.y,dimensions.x,dimensions.y);
 	for(int i=0;i<passes.GetCount();i++){
-
 		glClearColor(passes[i]->ClearColor()[0],
 					passes[i]->ClearColor()[1],
 					passes[i]->ClearColor()[2],
 					passes[i]->ClearColor()[3]);
-		if(passes[i]->ClearFlags()){
-			glClear(passes[i]->ClearFlags());
-		}
+        glClear(passes[i]->ClearFlags());//had a check for ClearFlags(), which I think meant not 0, so, it's dumb
         glPushMatrix();
             if(passes[i]->GetCamera()){
                 passes[i]->GetCamera()->TranslateView();
@@ -60,7 +57,11 @@ void Multipass::Draw(){
                 gluLookAt(0,0,0,0,0,-10,0,1,0);
             }
             glMatrixMode(GL_MODELVIEW);
-            glLoadIdentity();
+           // glLoadIdentity();
+        glEnable(GL_DEPTH_TEST);
+        glCullFace(GL_BACK);
+        glEnable(GL_CULL_FACE);
+
             glPushAttrib(GL_ALL_ATTRIB_BITS);
                 if(renderSubject) renderSubject->Draw();
             glPopAttrib();

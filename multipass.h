@@ -1,6 +1,10 @@
 #ifndef ENGINE_VIEW_MULTIPASS_H
 #define ENGINE_VIEW_MULTIPASS_H
 
+
+#define GLEW_STATIC
+#include <GL/glu.h>
+
 #include <engine/graphics/view.h>
 #include "renderpass.h"
 

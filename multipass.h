@@ -27,12 +27,6 @@ public:
 	virtual void Update();
     virtual void Draw();
 
-    void SetCamera();
-
-
-    void SetTargetNode();
-
-
 };
 
 

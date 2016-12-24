@@ -25,6 +25,7 @@ void Multipass::OnSetSettings(){
         rp->Settings(passSettings.GetGroup(passNames[i]));
         passes.Push(rp);
         Link(rp);
+        cout << " - add render pass : " << passNames[i] << endl;
     }
 
 
@@ -40,9 +41,15 @@ void Multipass::Update(){
 }
 
 void Multipass::Draw(){
+
+    glPushAttrib(GL_ALL_ATTRIB_BITS);
+
+    glEnable(GL_SCISSOR_TEST);
 	glScissor(bottomLeft.x,bottomLeft.y,dimensions.x,dimensions.y);
 	glViewport(bottomLeft.x,bottomLeft.y,dimensions.x,dimensions.y);
+
 	for(int i=0;i<passes.GetCount();i++){
+
 		glClearColor(passes[i]->ClearColor()[0],
 					passes[i]->ClearColor()[1],
 					passes[i]->ClearColor()[2],
@@ -58,21 +65,14 @@ void Multipass::Draw(){
             }
             glMatrixMode(GL_MODELVIEW);
            // glLoadIdentity();
-        glEnable(GL_DEPTH_TEST);
-        glCullFace(GL_BACK);
-        glEnable(GL_CULL_FACE);
 
-            glPushAttrib(GL_ALL_ATTRIB_BITS);
+            glEnable(GL_DEPTH_TEST);
+            glCullFace(GL_BACK);
+            glEnable(GL_CULL_FACE);
+                passes[i]->PreRender();
                 if(renderSubject) renderSubject->Draw();
-            glPopAttrib();
+                passes[i]->PostRender();
         glPopMatrix();
 	}
-}
-
-void Multipass::SetCamera(){
-
-}
-
-void Multipass::SetTargetNode(){
-
+    glPopAttrib();
 }

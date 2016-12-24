@@ -2,12 +2,10 @@
 #define RENDER_PASS_H
 
 
-//#define GLEW_STATIC
-//#include <GL/glew.h>
 
 #include <engine/core/node.h>
 #include <engine/graphics/camera.h>
-#include <engine/graphics/shader.h>
+#include "shader.h"
 
 class RenderPass : public Node{
 private:

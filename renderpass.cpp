@@ -47,7 +47,7 @@ void RenderPass::OnSetSettings(){
     }
 
     if(settings.IsSet("shader")){
-        Shader shader = Shader(settings.get<string>("shader"));
+        //Shader shader = Shader(settings.get<string>("shader"));
     }
 
 

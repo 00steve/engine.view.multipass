@@ -2,9 +2,12 @@
 #define __MAIN_H__
 
 
-
+#include "gl_core_4_3.h"
 #include "multipass.h"
 #include <windows.h>
+
+
+//#include <GL/gl.h>
 
 /*  To use this exported function of dll, include this header
  *  in your project.

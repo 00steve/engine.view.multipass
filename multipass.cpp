@@ -1,13 +1,8 @@
 #include "multipass.h"
 
 
-
-Multipass::Multipass() {
-}
-
 void Multipass::OnSetSettings(){
     VarMap settings = Settings();
-
     if(settings.IsSet("clear-color")){
         List<double> clearVals = settings.get<List<double> >("clear-color");
         if(clearVals.GetCount() == 4){
@@ -15,8 +10,6 @@ void Multipass::OnSetSettings(){
             clearAlpha = clearVals[3];
         }
     }
-
-    //load any cameras
     VarMap passSettings = settings.GetGroup("passes");
     List<string> passNames = passSettings.GroupNames();
     for(int i=0;i<passNames.GetCount();i++){
@@ -25,14 +18,9 @@ void Multipass::OnSetSettings(){
         rp->Settings(passSettings.GetGroup(passNames[i]));
         passes.Push(rp);
         Link(rp);
-        cout << " - add render pass : " << passNames[i] << endl;
     }
-
-
     View::OnSetSettings();
 }
-
-
 
 void Multipass::Update(){
 	for(int i=0;i<passes.GetCount();i++){
@@ -41,15 +29,11 @@ void Multipass::Update(){
 }
 
 void Multipass::Draw(){
-
     glPushAttrib(GL_ALL_ATTRIB_BITS);
-
     glEnable(GL_SCISSOR_TEST);
 	glScissor(bottomLeft.x,bottomLeft.y,dimensions.x,dimensions.y);
 	glViewport(bottomLeft.x,bottomLeft.y,dimensions.x,dimensions.y);
-
 	for(int i=0;i<passes.GetCount();i++){
-
 		glClearColor(passes[i]->ClearColor()[0],
 					passes[i]->ClearColor()[1],
 					passes[i]->ClearColor()[2],
@@ -61,11 +45,8 @@ void Multipass::Draw(){
             } else {
                 glMatrixMode(GL_PROJECTION);
                 glLoadIdentity();
-                gluLookAt(0,0,0,0,0,-10,0,1,0);
             }
             glMatrixMode(GL_MODELVIEW);
-           // glLoadIdentity();
-
             glEnable(GL_DEPTH_TEST);
             glCullFace(GL_BACK);
             glEnable(GL_CULL_FACE);

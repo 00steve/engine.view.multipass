@@ -75,8 +75,6 @@ void RenderPass::OnGlobalRequest(Node* globalNodeRef,string name){
 	if(name == cameraName){
 		camera = (Camera*)globalNodeRef;
         Link(globalNodeRef);
-        //cout << " - renderpass got camera " << name << endl;
-		//camera->Init(_pipeRes,_targetNode);
 	}
 }
 
